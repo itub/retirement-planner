@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: retirement-planner-api
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_CALLBACK_URL
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: retirement-planner-db
+          property: connectionString
+
+databases:
+  - name: retirement-planner-db
+    databaseName: retirement_planner
+    user: retirement_planner
