@@ -44,7 +44,7 @@ export default function LoginPage() {
             Monte Carlo simulations, tax-smart withdrawals, and social security modeling — all in one place.
           </p>
 
-          <a href="/auth/google" style={{
+          <a href={`${import.meta.env.VITE_API_URL || ''}/auth/google`} style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12,
             background: 'white', color: '#222',
             borderRadius: 10, padding: '14px 24px',
